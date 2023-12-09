@@ -1,0 +1,23 @@
+﻿
+
+@*USING TAG HELPER*@
+
+@model HtmlTagHelper.Models.UserModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Tag Helper Form</h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">UserModel.Name:</label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button type="submit" value="TagHelperForm" class="btn btn-primary">Submit</button>
+</form>
+
+

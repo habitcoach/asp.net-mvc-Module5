@@ -1,0 +1,15 @@
+﻿
+@using reusuableViews.Views.Home.Components
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+<p>In main view</p>
+
+@await Component.InvokeAsync("Comments")
+

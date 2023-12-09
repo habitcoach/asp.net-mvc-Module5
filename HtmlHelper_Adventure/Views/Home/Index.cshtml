@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Adventure Website";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://example.com/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-container label {
+            color: #fff;
+        }
+
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .image-gallery {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .img-thumbnail {
+            margin: 10px;
+            max-width: 200px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+
+        .img-containerPic {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Adjust the gap as needed */
+        }
+
+        .img-thumbnailPic {
+            max-width: calc(33.33% - 10px); /* 33.33% to have three images in a row with gaps */
+            border-radius: 10px; /* Adds rounded edges */
+        }
+
+        .footer {
+            background-color: #333; /* Background color for the footer */
+            padding: 10px 0;
+            color: #fff; /* Text color for the footer */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Welcome to Adventure Website</h2>
+
+        <div class="nav-links">
+            <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Home</a>
+            <a class="btn btn-primary" href="@Url.Action("Privacy", "Home")">About</a>
+            <a class="btn btn-primary" href="@Url.Action("Contact", "Home")">Contact</a>
+        </div>
+
+        <div class="form-container">
+            @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("Select your destination:")
+                    
+                    @Html.DropDownList("selectedPlace", ViewBag.TouristPlaces as SelectList, "Choose a place", new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-success">Plan Your Adventure</button>
+            }
+        </div>
+
+        <div class="image-gallery">
+            <h3>Explore Our Adventures</h3>
+            <div class="img-containerPic">
+                <img src="~/images/istockphoto-1340496259-2048x2048.jpg" alt="Adventure 1" class="img-thumbnailPic" />
+                <img src="~/images/adventure-1405785.jpg" alt="Adventure 2" class="img-thumbnailPic" />
+                <img src="~/images/istockphoto-1464634937-2048x2048.jpg" alt="Adventure 3" class="img-thumbnailPic" />
+            </div>
+        </div>
+    </div></br></br>
+</body>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center text-white">Adventure Website &copy; 2023. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
+

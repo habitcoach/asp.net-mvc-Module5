@@ -1,0 +1,40 @@
+﻿@using razorSyntxWithDI.Service
+@inject iServiceInterface serviceobject
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>>
+    <h1 class="display-4">@serviceobject.GetString()</h1>>
+   <h1>@string.Concat("Hello", "World")</h1>
+
+    <h1>@ViewData["Message"]</h1>>
+    
+   @*@{
+
+       var flag = false;
+       if (flag) {
+
+           <h1>When the flag is true</h1>
+       }
+
+       for (int item = 0; item < 10; item++)
+       {
+        <p>   @item : this sentence include @:item</p>
+       }
+
+   }*@
+
+    @foreach (var names in @ViewBag.Name)
+    {  //(List<string>)ViewData["Name"]
+
+            <h1>@names</h1>
+        }
+   
+
+  
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
